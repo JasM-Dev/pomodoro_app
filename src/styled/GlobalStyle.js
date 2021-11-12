@@ -1,7 +1,4 @@
-
 import { createGlobalStyle } from "styled-components";
-
-
 
 export const GlobalStyle = createGlobalStyle`
 :root{
@@ -10,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     --color_dark_blue:#1E213F;
     --color_blue_black: #161932;
     --color_white: #ffffff;
+
     --font_xxl: 100px;
     --font_xl: 28px;
     --font_lg:16px;

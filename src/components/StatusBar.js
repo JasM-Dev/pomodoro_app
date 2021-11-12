@@ -1,15 +1,19 @@
-import { StyledStatusBar } from "../styled/components/StatusBar.styled";
-
- const StatusBar = () => {
-    const timerStatuses = ["pom", "short", "long"];
-    return (
-        <StyledStatusBar>
-        {timerStatuses.map(status => (
-          <span key={status} className='status_span'>
-            {status === "pom" ? 'pomodoro' : `${status} break`}
-          </span>
-        ))}
-      </StyledStatusBar>
-    )
-}
+import { useContext } from "react";
+import { StyledStatusBar,StyledStatusLabel } from "../styled/components/StatusBar.styled";
+import { ThemeContext } from "../themeContext";
+const StatusBar = ({ intervals, active }) => {
+  const { themeColor } = useContext(ThemeContext);
+  return (
+    <StyledStatusBar >
+      {intervals.map(status => (
+        <StyledStatusLabel key={status}
+        active={status}
+         status={active} 
+         themeColor={themeColor}>
+        {status === "pom" ? "pomodoro" : `${status} break`}
+        </StyledStatusLabel>
+      ))}
+    </StyledStatusBar>
+  );
+};
 export default StatusBar;
