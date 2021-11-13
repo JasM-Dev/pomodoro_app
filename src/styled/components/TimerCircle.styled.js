@@ -33,9 +33,8 @@ const StyledTimerCircle = styled.div`
   }
   .timer_circle {
     fill: none;
-    stroke: ${props => props.strokeColor};
+    stroke: ${props => props.themeColor};
     stroke-width: 15;
-    stroke-dasharray: ${props => props.strokeDash};
   }
 `;
 export default StyledTimerCircle;

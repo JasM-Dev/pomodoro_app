@@ -5,6 +5,11 @@ import { GlobalStyle } from "./styled/GlobalStyle";
 export const ThemeContext = React.createContext();
 
 function ThemeProvider({ children }) {
+  const [times, setTimes] = useState({
+    pom: 1,
+    short_break: 1,
+    long_break: 1,
+  });
   const colors = ["#F87070", "#70F3F8", "#D881F8"];
   const fonts = [
     "'Kumbh Sans', sans-serif",
@@ -22,6 +27,8 @@ function ThemeProvider({ children }) {
       setThemeFont: setThemeFont,
       colors: colors,
       fonts: fonts,
+      times: times,
+      setTimes: setTimes
     }
   
   return (
