@@ -21,7 +21,7 @@ Users should be able to:
 - Search for any IP addresses or domains and see the key information and location
 ### Screenshot
 
-![ip tracker app screenshot](./public/project-screenshot-small.png)
+![ip tracker app screenshot](./public/project-screenshot.png)
 
 ### Links
 
