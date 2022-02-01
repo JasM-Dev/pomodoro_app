@@ -1,11 +1,11 @@
-import StyledApplyBttn from "../../styled/ApplyBttn.styled"
+import StyledApplyBttn from "../../styled/components/buttons/ApplyBttn.styled";
 
-const ApplyBttn = ({themeColor}) => {
-    return (
-<StyledApplyBttn themeColor={themeColor}>
-    Apply
-</StyledApplyBttn>
-    )
-}
+const ApplyBttn = ({ color }) => {
+  return (
+    <StyledApplyBttn type={"submit"} color={color}>
+      Apply
+    </StyledApplyBttn>
+  );
+};
 
-export default ApplyBttn
+export default ApplyBttn;

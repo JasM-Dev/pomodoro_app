@@ -1,15 +1,22 @@
-import StyledTimerBttn from "../../styled/components/buttons/TimerBttn.styled"
+import StyledTimerBttn from "../../styled/components/buttons/TimerBttn.styled";
 
-const TimerBttn = ({completed,paused,handleStart,handleRestart}) => {
+const TimerBttn = ({
+  color,
+  completed,
+  paused,
+  handleStart,
+  handleRestart,
+}) => {
+  return (
+    <StyledTimerBttn
+      color={color}
+      onClick={completed ? handleRestart : handleStart}
+    >
+      {!paused && !completed && "start"}
+      {paused && !completed && "pause"}
+      {completed && "restart"}
+    </StyledTimerBttn>
+  );
+};
 
-    return (
-        <StyledTimerBttn
-        onClick={completed ? handleRestart : handleStart}>
-            {!paused && !completed && "start"}
-            {paused && !completed && "pause"}
-            {completed && "restart"}
-        </StyledTimerBttn>
-    )
-}
-
-export default TimerBttn
+export default TimerBttn;

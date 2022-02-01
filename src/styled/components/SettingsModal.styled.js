@@ -14,6 +14,12 @@ background-color: rgba(0,0,0,.5);
     margin: 48px auto 0 auto;
     border-radius: 15px;
     width: 87.2%;
+    @media(min-width: 760px){
+        width: 540px;
+    }
+    @media(min-width: 1400px){
+        width: 490px;
+    }
 }
 
 

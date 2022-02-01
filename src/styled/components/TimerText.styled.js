@@ -17,6 +17,9 @@ line-height: 80px;
 text-align: center;
 letter-spacing: -4px;
 color: #D7E0FF;
+@media(min-width: 760px){
+    font-size: 100px;
+}
 }
 `
 export default StyledTimerText;

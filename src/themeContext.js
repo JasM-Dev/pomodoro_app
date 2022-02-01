@@ -7,8 +7,8 @@ export const ThemeContext = React.createContext();
 function ThemeProvider({ children }) {
   const [times, setTimes] = useState({
     pom: 1,
-    short_break: 1,
-    long_break: 1,
+    short: 1,
+    long: 1,
   });
   const colors = ["#F87070", "#70F3F8", "#D881F8"];
   const fonts = [

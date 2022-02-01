@@ -27,6 +27,7 @@ const TimerCircle = ({
         <circle className='timer_circle' cx='400' cy='400' r='320' strokeDasharray={`${strokeDash} ${circumfrence}`} />
       </svg>
       <TimerText
+      color={themeColor}
         completed={completed}
         paused={paused}
         handleStart={handleStart}

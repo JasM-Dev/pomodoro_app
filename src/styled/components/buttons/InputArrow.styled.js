@@ -5,6 +5,7 @@ const StyledInputArrows = styled.button`
   background: transparent;
   height: 100%;
   svg {
+    pointer-events: none;
     fill: none;
     stroke: #1e213f;
     stroke-opacity: 0.25;

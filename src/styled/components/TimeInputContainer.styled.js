@@ -7,6 +7,9 @@ const StyledTimeInputContainer = styled.div`
       z-index: 2;
       top: 5%;
       left: 80%;
+      @media(min-width: 760px){
+        left: 65%
+      }
   }
 `;
 export default StyledTimeInputContainer;

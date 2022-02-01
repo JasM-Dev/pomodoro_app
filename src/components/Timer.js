@@ -3,8 +3,11 @@ import StatusBar from "./StatusBar";
 import TimerCircle from "./TimerCircle";
 import { getStroke } from "../helpers/getStroke";
 import { ThemeContext } from "../themeContext";
+import SettingsModal from "./SettingsModal";
+import SettingsBttn from "./buttons/SettingsBttn";
 
 const Timer = () => {
+  const [editingSettings, setEditingSettings] = useState(true);
   const { times } = useContext(ThemeContext);
   const intervals = ["pom", "short", "long"];
   const circumfrence = 2011;
@@ -38,14 +41,14 @@ const Timer = () => {
       setDashAmnt(getStroke(times.pom, circumfrence));
       setCycleTime(prev => ({
         ...prev,
-        minutes: times.short_break,
+        minutes: times.short,
         seconds: 0,
       }));
       return;
     } else if (activeInt === "short") {
       setActiveInt("pom");
       setStrokeDash(circumfrence);
-      setDashAmnt(getStroke(times.short_break, circumfrence));
+      setDashAmnt(getStroke(times.pom, circumfrence)); 
       setCycleTime(prev => ({
         ...prev,
         minutes: times.pom,
@@ -54,20 +57,20 @@ const Timer = () => {
       return;
     } else if (activeInt === "pom" && pomCycles >= 3) {
       setStrokeDash(circumfrence);
-      setDashAmnt(getStroke(times.long_break, circumfrence));
+      setDashAmnt(getStroke(times.long, circumfrence));
       setActiveInt("long");
       setCycleTime(prev => ({
         ...prev,
-        minutes: times.long_break,
+        minutes: times.long,
         seconds: 0,
       }));
     } else if (activeInt === "long") {
       setCompleted(true);
       setTimerOn(false);
+      setActiveInt("pom");
       setPomCycles(0);
-      setDashAmnt(getStroke(times.pom, circumfrence))
       return;
-    }
+    } 
   }, [activeInt, times, pomCycles, setPomCycles]);
 
   const secondsCountDown = useCallback(() => {
@@ -98,26 +101,45 @@ const Timer = () => {
       clearInterval(countDownTimer);
     };
   }, [timerOn, secondsCountDown]);
+
   function handleStart() {
     setTimerOn(!timerOn);
   }
+
   function restartTimer() {
+    setCompleted(false);
     setStrokeDash(circumfrence)
+    setDashAmnt(getStroke(times.pom, circumfrence));
+    setCycleTime(prev => ({
+      ...prev,
+      minutes: times.pom,
+      seconds: 0,
+    }));
+    setTimerOn(!timerOn);
+  }
+
+  function editTimes(){
+    setTimerOn(false);
+    setStrokeDash(circumfrence)
+    setDashAmnt(getStroke(times.pom, circumfrence));
     setCycleTime(prev => ({
       ...prev,
       minutes: times.pom,
       seconds: 0,
     }));
     setActiveInt("pom")
-    setCompleted(false);
-    setTimerOn(!timerOn);
-    
+    setPomCycles(0)
   }
-
   return (
     <div>
       <header>
-        <h1 className='site_title'>Pomodoro</h1>
+        {editingSettings && (
+          <SettingsModal
+            restart={editTimes}
+            handleCloseClick={() => setEditingSettings(false)}
+          />
+        )}
+        <h1 className='site_title'>pomodoro</h1>
       </header>
       <StatusBar intervals={intervals} active={activeInt} />
       <TimerCircle
@@ -130,6 +152,7 @@ const Timer = () => {
         circumfrence={circumfrence}
         strokeDash={strokeDash}
       />
+      <SettingsBttn handleClick={() => setEditingSettings(true)} />
     </div>
   );
 };

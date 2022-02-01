@@ -5,6 +5,9 @@ const StyledTimerCircle = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  @media(min-width: 760px){
+    margin-top: 109px;
+  }
 
   .clock_container {
     grid-row: 1/2;
@@ -15,6 +18,10 @@ const StyledTimerCircle = styled.div`
     border-radius: 100%;
     background-color: var(--color_blue_black);
     box-shadow: -30px -50px 100px #272c5a, 50px 50px 100px #121530;
+    @media(min-width: 760px){
+      width: 410px;
+      height: 410px;
+    }
   }
   .circle_container {
     margin-left: auto;

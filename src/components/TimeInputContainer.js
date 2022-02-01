@@ -1,21 +1,17 @@
-import StyledInputArrows from "../styled/components/buttons/InputArrow.styled"
-import StyledTimeInput from "../styled/components/TimeInput.styled"
-import StyledTimeInputContainer from "../styled/components/TimeInputContainer.styled"
+import StyledTimeInputContainer from "../styled/components/TimeInputContainer.styled";
+import InputArrow from "./InputArrow";
+import TimeInput from "./TimeInput";
 
-const TimeInputContainer = () => {
-    return (
-        <StyledTimeInputContainer>
-            <StyledTimeInput htmlFor="pomodoro time" type="number"/>
-            <div className="arrows_container">
-            <StyledInputArrows>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="7"><path d="M1 6l6-4 6 4"/></svg>
-            </StyledInputArrows>
-            <StyledInputArrows>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="7"><path d="M1 1l6 4 6-4"/></svg>
-            </StyledInputArrows>
-            </div>
-        </StyledTimeInputContainer>
-    )
-}
+const TimeInputContainer = ({ time, handleChange, handleClick, name }) => {
+  return (
+    <StyledTimeInputContainer>
+      <TimeInput time={time} name={name} handleChange={handleChange} />
+      <div className='arrows_container'> 
+        <InputArrow  handleClick={(e)=> handleClick(e,name)} value='inc' />
+        <InputArrow   handleClick={(e) => handleClick(e,name)} value='dec' />
+      </div>
+    </StyledTimeInputContainer>
+  );
+};
 
-export default TimeInputContainer
+export default TimeInputContainer;

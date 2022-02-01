@@ -1,11 +1,11 @@
 import StyledSettingsModal from "../styled/components/SettingsModal.styled"
 import SettingsForm from "./SettingsForm"
 
-const SettingsModal = ({handleCloseClick}) => {
+const SettingsModal = ({handleCloseClick,restart}) => {
     return (
         <StyledSettingsModal>
             <div className="modal_container">
-                <SettingsForm handleCloseClick={handleCloseClick}/>
+                <SettingsForm handleCloseClick={handleCloseClick} restart={restart}/>
             </div>
         </StyledSettingsModal>
     )

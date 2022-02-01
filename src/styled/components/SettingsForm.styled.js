@@ -1,16 +1,19 @@
 import styled from "styled-components";
+
 const StyledSettingsForm = styled.form`
   padding-top: 24px;
   padding-bottom: 35px;
   position: relative;
+  @media (min-width: 760px) {
+  }
   hr {
     border: 1px solid #e3e1e1;
   }
-  .partial_hr{
-      padding-right: 23px;
-      padding-left: 24px;
-      width: 85.5%;
-      margin: 0 auto;
+  .partial_hr {
+    padding-right: 23px;
+    padding-left: 24px;
+    width: 85.5%;
+    margin: 0 auto;
   }
   .heading_section {
     display: flex;
@@ -21,6 +24,12 @@ const StyledSettingsForm = styled.form`
     padding-left: 24px;
     padding-right: 24px;
   }
+  .heading_section h1 {
+    font-size: 20px;
+    @media (min-width: 760px) {
+      font-size: 28px;
+    }
+  }
   .section_heading {
     padding-top: 24px;
     margin-bottom: 18px;
@@ -28,9 +37,23 @@ const StyledSettingsForm = styled.form`
     font-size: 11px;
     line-height: 1;
     text-align: center;
-    letter-spacing: 4.23077px;
+    letter-spacing: 4.2px;
     color: var(--color_blue_black);
     text-transform: uppercase;
+    @media (min-width: 760px) {
+      text-align: left;
+      font-size: var(--font_sm);
+      margin-left: 40px;
+      width: fit-content;
+    }
+  }
+  .time_section {
+    display: grid;
+    row-gap: 8px;
+    padding: 0 24px 24px 23px;
+    @media (min-width: 760px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
   .time_container {
     display: grid;
@@ -38,11 +61,10 @@ const StyledSettingsForm = styled.form`
     width: 100%;
     justify-content: space-between;
     align-items: center;
-  }
-  .time_section {
-    display: grid;
-    row-gap: 8px;
-    padding: 0 24px 24px 23px;
+    @media (min-width: 760px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
   }
   .time_label {
     font-weight: bold;
@@ -57,16 +79,17 @@ const StyledSettingsForm = styled.form`
     display: flex;
     justify-content: space-between;
     padding-bottom: 24px;
+    @media (min-width: 760px) {
+      margin-right: 0;
+    }
   }
-  .apply_bttn {
-    position: absolute;
-    left: 31%;
-    top: 96%;
-    background: salmon;
-    border-radius: 26.5px;
-    padding: 17px 47px 20px 47px;
-    font-weight: bold;
-    color: var(--color_white)
+  @media (min-width: 760px) {
+    .section_container {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 35px;
+      margin-top: 24px;
+    }
   }
 `;
 
