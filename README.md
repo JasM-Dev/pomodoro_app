@@ -15,10 +15,11 @@
 
 Users should be able to:
 
-- View the optimal layout for each page depending on their device's screen size
-- See hover states for all interactive elements on the page
-- See their own IP Address on the map on the initial page load
-- Search for any IP addresses or domains and see the key information and location
+- Set a pomodoro timer and short & long break timers
+- Customize how long each timer runs for
+- See a circular progress bar that updates every minute and represents how far through their timer they are
+- Customize the appearance of the app with the ability to set preferences for colors and fonts
+
 ### Screenshot
 
 ![Pomodoro Timer app](./public/project-screenshot.png)
